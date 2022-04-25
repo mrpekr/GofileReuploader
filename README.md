@@ -20,5 +20,5 @@ A Simple Script That Downloads File from Gofile and uploads it to Gofile all lin
 ### Todo List
 - [ ] Clean up Code
 - [ ] Better Text
-- [ ] Add Comments in the Code
+- [X] Add Comments in the Code
 - [ ] More Stuff Comming Soon ... (Maybe)
