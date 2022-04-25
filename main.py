@@ -4,13 +4,15 @@ from colorama import Fore
 import shutil, requests, datetime, os
 
 #Config
-fileiszip = False #Change to true if your file is already zipped.
+fileiszip = True #Change to true if your file is already zipped.
 webhookurl = '' #Put your webhook url here
 
 # Welcoming message
-print(Fore.YELLOW + "Hello Welcome to GoFile Reuploader. This is a simple program that will reupload a file from Gofile to GoFile.\nDo to GoFile's API limitations, this program can only upload files that are in ZIP format.")
-print("Do not Worry! We will create zip file for you and then upload it to Gofile. If you file is already in ZIP format,\nPlease Change Config If you havent done alredy and we will just upload it to Gofile.")
-input(Fore.WHITE + "Press Any key to continue...")
+print(Fore.GREEN + "   _____        __ _ _        _____                  _                 _           \n  / ____|      / _(_) |      |  __ \                | |               | |          \n | |  __  ___ | |_ _| | ___  | |__) |___ _   _ _ __ | | ___   __ _  __| | ___ _ __ \n | | |_ |/ _ \|  _| | |/ _ \ |  _  // _ \ | | | '_ \| |/ _ \ / _` |/ _` |/ _ \ '__|\n | |__| | (_) | | | | |  __/ | | \ \  __/ |_| | |_) | | (_) | (_| | (_| |  __/ |   \n  \_____|\___/|_| |_|_|\___| |_|  \_\___|\__,_| .__/|_|\___/ \__,_|\__,_|\___|_|   \n                                              | |                                  \n                                              |_|                                  ")
+print()
+print(Fore.YELLOW + "Hello Welcome to GoFile Reuploader. This is a simple program that will reupload a file from Gofile to GoFile!\nDo to GoFile's API limitations, this program can only upload files that are in ZIP format.\nIts siple you only enter Gofile link and password (if the file has one) we will download it and upload it!\nIf they are not Zip or there are more than 1 there is no problem We Will Create Zip File with all your files inside.\nThen We will upload that file to Gofile and Send Link Straight To Your Discord Channel With Webhook!")
+print()
+input(Fore.LIGHTRED_EX + "Press Any key to continue...")
 
 #Get Gofile Info
 durl = input("Enter the GoFile url: ")
@@ -33,6 +35,7 @@ class GofileReuploader:
         url = durl
         password = dpassword or None
 
+        print(Fore.YELLOW + "Downloading file...")
         #Download File
         api = GoFile()
         for u in api.fetch_resources(url, password):
@@ -99,6 +102,5 @@ class GofileReuploader:
         #Send webhook
         requests.post(self.webhook, json=embed)
         print(Fore.GREEN + "Successfully Sent Webhook.")
-
 if __name__ == "__main__":
     GofileReuploader()
