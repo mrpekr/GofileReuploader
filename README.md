@@ -21,7 +21,8 @@ A Simple Script That Downloads File from Gofile and uploads it to Gofile all lin
 - [X] Clean up Code
 - [X] Better Text
 - [X] Add Comments in the Code
-- [ ] Add requirements.txt
+- [x] Add requirements.txt
+- [x] Release v1.0.0
 - [ ] More Stuff Comming Soon ... (Maybe)
 
 ### Credits
