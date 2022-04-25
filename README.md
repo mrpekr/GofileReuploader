@@ -21,7 +21,7 @@ A Simple Script That Downloads File from Gofile and uploads it to Gofile all lin
 - [X] Clean up Code
 - [X] Better Text
 - [X] Add Comments in the Code
-- [ ] Look Into [Issue #1](https://github.com/mrpekr/GofileReuploader/issues/1) 
+- [ ] Add requirements.txt
 - [ ] More Stuff Comming Soon ... (Maybe)
 
 ### Credits
