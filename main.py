@@ -2,9 +2,10 @@ from plugins import GoFile
 from gofile2 import Gofile
 import shutil, requests, time, datetime
 from colorama import Fore, Back, Style
+import os
 
 #Config
-fileiszip = True #Change to true if your file is already zipped.
+fileiszip = False #Change to true if your file is already zipped.
 webhookurl = '' #Put your webhook url here
 
 print(Fore.YELLOW + "Hello Welcome to GoFile Reuploader. This is a simple program that will reupload a file from Gofile to GoFile.\nDo to GoFile's API limitations, this program can only upload files that are in ZIP format.")
@@ -17,7 +18,8 @@ dpassword = input("Enter the GoFile password (If One): ")
 class GofileReuploader:
     def __init__(self):
         self.webhook = webhookurl
-
+        os.makedirs('temp', exist_ok=True)
+        os.makedirs('temp/output', exist_ok=True)
         self.main()
     
     def main(self):
@@ -56,6 +58,8 @@ class GofileReuploader:
             self.file2 = f"**Mirror #2: [{uurl2['downloadPage']}]({uurl2['downloadPage']})**"
             self.file3 = f"**Mirror #3: [{uurl3['downloadPage']}]({uurl3['downloadPage']})**"
             self.WebhookSender(self.file1, self.file2, self.file3)
+            shutil.rmtree("./temp")
+
 
     def WebhookSender(self, file1, file2, file3):
         today = datetime.date.today()
@@ -78,6 +82,5 @@ class GofileReuploader:
         }
         requests.post(self.webhook, json=embed)
         print(Fore.GREEN + "Successfully Sent Webhook.")
-
 if __name__ == "__main__":
     GofileReuploader()
