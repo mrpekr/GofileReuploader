@@ -1,0 +1,4 @@
+colorama
+gofile2
+shutil
+requests
