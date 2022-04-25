@@ -22,3 +22,6 @@ A Simple Script That Downloads File from Gofile and uploads it to Gofile all lin
 - [ ] Better Text
 - [X] Add Comments in the Code
 - [ ] More Stuff Comming Soon ... (Maybe)
+
+### Credits
+Xamaz - [megaloader](https://github.com/Ximaz/megaloader) (Download Plugin)
